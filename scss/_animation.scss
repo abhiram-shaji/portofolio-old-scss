@@ -1,0 +1,138 @@
+/*------------------------------------------------ANIMATION---------------------------------------------------------*/
+
+/*
+
+1.Defining animations for each shape
+2.Applying animations to shapes
+3.Animated text
+4.Dynamic CSS Animation with CSS Variables
+
+*/
+
+.animation {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 27%;
+  
+    &__container-svg {
+      width: 100vw;
+      height: 100vh;
+    }
+  }
+  
+  // Defining animations for each shape
+  @keyframes circleMove {
+    0%, 100% { transform: translate(336.8px, 414.23px) translateY(0); }
+    50% { transform: translate(336.8px, 414.23px) translateY(-10px); }
+  }
+  
+  @keyframes arrowMove {
+    0%, 100% { transform: translate(725.75px, 658.62px) rotate(0); }
+    50% { transform: translate(725.75px, 658.62px) rotate(10deg); }
+  }
+  
+  @keyframes crossMove {
+    0%, 100% { transform: translate(330.61px, 680.61px) scale(1); }
+    50% { transform: translate(330.61px, 680.61px) scale(1.1); }
+  }
+  
+  @keyframes triangleMove {
+    0%, 100% { transform: translate(540px, 416.2px) translateX(0); }
+    50% { transform: translate(540px, 416.2px) translateX(-10px); }
+  }
+  
+  @keyframes squareMove {
+    0%, 100% { transform: translate(723.93px, 415.74px) rotate(0); }
+    50% { transform: translate(723.93px, 415.74px) rotate(-10deg); }
+  }
+  
+  @keyframes frameMove {
+    0%, 100% { transform: translate(555.89px, 657.61px) scale(1); }
+    50% { transform: translate(555.89px, 657.61px) scale(0.9); }
+  }
+
+  @keyframes spinCross {
+    0% {
+      transform: translate(330.61px, 680.61px) rotate(0deg);
+    }
+    100% {
+      transform: translate(330.61px, 680.61px) rotate(360deg);
+    }
+  }
+
+  @keyframes splitFrame {
+    0%, 100% {
+      transform: translate(555.89px, 657.61px) scaleY(1);
+    }
+    50% {
+      transform: translate(555.89px, 657.61px) scaleY(2);
+    }
+  }
+  
+  // Applying animations to shapes
+  #circle {
+    animation: circleMove 3s infinite alternate;
+  }
+  
+  #arrow {
+    animation: arrowMove 4s infinite alternate;
+  }
+  
+  #cross {
+    animation: crossMove 5s infinite alternate;
+    animation: spinCross 2s infinite linear;
+  }
+  
+  #triangle {
+    animation: triangleMove 3s infinite alternate;
+  }
+  
+  #square {
+    animation: squareMove 4s infinite alternate;
+  }
+  
+  #frame {
+    animation: frameMove 5s infinite alternate;
+    animation: splitFrame 3s infinite alternate;
+  }
+  
+  /* Animated text */
+  /* Creating a Motion Path */
+  @keyframes moveAlongPath {
+    0% {
+      offset-distance: 0%;
+    }
+    
+    100% {
+      offset-distance: 100%;
+    }
+  }
+  
+  #animation__kace {
+    font-size: 5rem;
+    offset-path: path('M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80');
+    animation: moveAlongPath 5s infinite alternate;
+    margin-left: 25%;
+    padding: 0;
+  }
+  
+  /* Dynamic CSS Animation with CSS Variables */
+  :root {
+    --animation-duration: 5s;
+  }
+  
+  #kace {
+    animation-duration: var(--animation-duration);
+  }
+  
+  /* References
+     CSS-Tricks: offset-path | CSS-Tricks​1​.
+     MDN Web Docs: CSS motion path - CSS: Cascading Style Sheets​2​.
+     W3Schools: CSS offset-path property​3​.
+     DEV Community: Dynamic animations with CSS variables​4​.
+     Envato Tuts+: How to Use CSS Variables for Animation​5​.
+     Val Head: Animating with CSS Variables​6​.
+     CSS-Tricks: Making Custom Properties (CSS Variables) More Dynamic​7​.
+  */
+  

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="scss/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Euphoria+Script&family=Poppins:wght@300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <title>Animation</title>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+
+  <nav class="navbar">
+    <input type="checkbox" id="navbar__check">
+    <div class="navbar__logo"><a href="/index.html"><img src="images/Logo.png" alt="Logo"></a></div>
+    <ul class="navbar__list">
+      <label class="navbar__button--cancel" for="navbar__check"><i class="fas fa-times"></i></label>
+      <li><a href="motion.html">Motion</a></li>
+      <li><a href="animation.html">Animation</a></li>
+    </ul>
+    <label class="navbar__button--bars" for="navbar__check"><i class="fas fa-bars"></i></label>
+  </nav>
+
+  <section class="animation">
+
+    <div class="animation__container">
+
+      <svg class="animation__container-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 1080 1080" xml:space="preserve">
+        <g transform="matrix(1 0 0 1 336.8 414.23)" id="circle">
+          <circle style="stroke: rgb(46,64,83); fill: rgb(46,64,83);" cx="0" cy="0" r="35" />
+        </g>
+        <g transform="matrix(1 0 0 1 725.75 658.62)" id="arrow">
+          <path style="stroke: rgb(46,64,83); fill: rgb(46,64,83);" transform="translate(-50.5, -50)"
+            d="M 82.614 52.531 C 85.445 49.751 85.445 45.164 82.614 42.334 L 55.582 15.3 C 52.799 12.519 48.212 12.519 45.381 15.3 L 18.348 42.334 C 15.567 45.164 15.567 49.751 18.348 52.531 C 22.251 56.192 33.036 48.189 42.65 44.431 L 42.65 82.003 C 42.65 84.639 44.796 86.784 47.431 86.784 L 54.655 86.784 C 57.291 86.784 59.436 84.638 59.436 82.003 L 59.436 44.871 C 68.561 48.775 78.32 55.9 82.614 52.531 z"
+            stroke-linecap="round" />
+        </g>
+        <g transform="matrix(1 0 0 1 330.61 680.61)" id="cross">
+          <path style="stroke: rgb(46,64,83); fill: rgb(46,64,83);" transform="translate(-50, -50)"
+            d="M 16.28 19.945 L 19.957 16.32 C 22.06 14.166 25.578 14.166 27.681 16.32 L 50.007 38.595 L 72.333 16.32 C 74.436 14.166 77.954 14.166 80.054 16.32 L 83.68 19.945 C 85.834 22.046 85.834 25.566 83.68 27.668 L 61.405 49.993 L 83.68 72.32 C 85.834 74.422 85.834 77.939 83.68 80.043 L 80.054 83.721 C 77.954 85.82 74.436 85.82 72.333 83.721 L 50.007 61.393 L 27.681 83.721 C 25.578 85.82 22.06 85.82 19.957 83.721 L 16.28 80.043 C 14.18 77.939 14.18 74.422 16.28 72.32 L 38.606 49.993 L 16.28 27.667 C 14.18 25.566 14.18 22.046 16.28 19.945 z"
+            stroke-linecap="round" />
+        </g>
+        <g transform="matrix(1 0 0 1 540 416.2)" id="triangle">
+          <polygon style="stroke: rgb(46,64,83); fill: rgb(46,64,83);" points="-37.43,32.41 0,-32.41 37.43,32.41" />
+        </g>
+        <g transform="matrix(1 0 0 1 723.93 415.74)" id="square">
+          <rect style="stroke: rgb(46,64,83); fill: rgb(46,64,83);" x="-33.0835" y="-33.0835" width="66.167"
+            height="66.167" />
+        </g>
+        <g transform="matrix(1 0 0 1 555.89 657.61)" id="frame">
+          <path style="stroke: rgb(46,64,83); fill: rgb(46,64,83);" transform="translate(-50, -50)"
+            d="M 90.375 90.375 L 9.625 90.375 L 9.625 9.625 L 90.375 9.625 L 90.375 90.375 z M 11.625 88.375 L 88.375 88.375 L 88.375 11.625 L 11.625 11.625 L 11.625 88.375 z"
+            stroke-linecap="round" />
+        </g>
+      </svg>
+
+
+
+      <div id="animation__kace">Kace</div>
+
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+
+  <footer class="footer">
+    <h2>Contact</h2>
+    <ul class="footer__contact-list">
+      <li class="footer__contact-item">
+        <a href="https://www.instagram.com/breifkace/" target="_blank">
+          <img src="images/footer/instagram.png" alt="Instagram">
+        </a>
+      </li>
+      <li class="footer__contact-item">
+        <a href="https://www.linkedin.com/in/abhiram-kace/" target="_blank">
+          <img src="images/footer/linkedin.png" alt="LinkedIn">
+        </a>
+      </li>
+      <li class="footer__contact-item">
+        <a href="mailto:abhiramks.ks44@example.com">
+          <img src="images/footer/email.png" alt="Email">
+        </a>
+      </li>
+    </ul>
+  </footer>
+
+</body>
+
+</html>

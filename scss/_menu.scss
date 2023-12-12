@@ -1,0 +1,94 @@
+/*------------------------------------------------Menu---------------------------------------------------------*/
+
+
+.navbar {
+    height: 3.125rem;
+    background-color: $hover-text-color; // using variable for background color
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  
+    &__logo {
+        img {
+            height: 3rem;
+            padding: .5rem;
+  
+            &:hover {
+                background-color: adjust-color($hover-text-color, 15%, false); // darken the hover-text-color for hover state
+                color: $primary-color; // using variable for color
+            }
+        }
+    }
+  
+    &__list {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 100%;
+        width: 100%;
+        height: 100vh;
+        padding-top: 2.8rem;
+        background-color: $base-background-color; // using variable for background color
+        transition: all 0.3s ease;
+        list-style-type: none;
+  
+        li {
+            margin: 0 0.438rem;
+        }
+  
+        a {
+            text-decoration: none;
+            font-weight: 700;
+            padding: 0.5rem 1.25rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            display: block;
+            font-size: 1.5rem;
+            width: 100%;
+            margin-top: 1.9rem;
+            text-align: center;
+            color: $hover-text-color; // using variable for text color
+        }
+    }
+  
+    &__button {
+        &--cancel,
+        &--bars {
+            color: adjust-color($primary-color, 20%); // lighten the primary-color for button color
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: none;
+            margin-left: 10rem;
+        }
+  
+        &--bars {
+            display: block;
+        }
+  
+        &--cancel {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+        }
+    }
+}
+  
+#navbar__check {
+    display: none;
+  
+    &:checked {
+        ~ .navbar__button--bars {
+            display: none;
+        }
+  
+        ~ .navbar__list {
+            .navbar__button--cancel {
+                display: block;
+            }
+  
+            left: 0;
+        }
+    }
+}

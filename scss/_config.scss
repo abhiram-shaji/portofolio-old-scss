@@ -1,0 +1,51 @@
+/*
+Contents
+
+1.Variables
+2.Resets & Basic Styles
+3.Mixins
+4.Extends
+5.Functions
+
+*/
+
+/*------------------------------------------------config---------------------------------------------------------*/
+
+
+// 1.Variables
+$base-font-family: 'Poppins', sans-serif;
+$base-background-color: #f5f5f5;
+$base-font-size-mobile: 14px;
+$base-font-size-tablet: 16px;
+$base-font-size-desktop: 1.125rem;
+$primary-color: #333333;
+$hover-bg-color: #DAA520;
+$hover-text-color: #2E4053;
+$tablet-breakpoint: 600px;
+$desktop-breakpoint: 1025px;
+
+// 2.Resets & Basic Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// 3.Mixins
+@mixin adjust-padding($top-bottom, $left-right) {
+  padding: $top-bottom $left-right;
+}
+
+// 4.Extends
+%centered-text {
+  text-align: center;
+}
+
+// 5.Functions
+@function adjust-color($color, $percentage, $lighten: true) {
+  @if $lighten {
+    @return lighten($color, $percentage);
+  } @else {
+    @return darken($color, $percentage);
+  }
+}

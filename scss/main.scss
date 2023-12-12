@@ -1,0 +1,149 @@
+/*
+
+Contents
+
+1. Tablet view
+2. Desktop view
+  2.1 Desktop Navbar
+
+*/
+
+/*------------------------------------------------Main---------------------------------------------------------*/
+
+
+@import 'config';
+@import 'menu';
+@import 'header';
+@import 'projects';
+@import 'education';
+@import 'work';
+@import 'footer';
+@import 'motion';
+@import 'animation';
+
+
+body {
+  overflow-x: hidden;
+  font-family: $base-font-family;
+  background-color: $base-background-color;
+  @extend %centered-text;
+  font-size: $base-font-size-mobile; 
+}
+
+h1, h2, h3, p {
+  margin-bottom: 1rem;
+
+  // Specific styles for h1
+  &.h1 {
+    font-size: 4rem;
+    color: $primary-color;
+    font-family: 'Euphoria Script', cursive;
+  }
+
+  // Specific styles for h2
+  &.h2 {
+    font-size: 2.5rem;
+    font-weight: bolder;
+  }
+
+  // Specific styles for h3
+  &.h3 {
+    font-size: 1.5rem;
+  }
+}
+
+ 
+/* ----------------------------------------------------------------------------1.Tablet view ------------------------------------------------------------------------*/
+
+@media screen and (min-width: $tablet-breakpoint) {
+  body {
+    font-size: $base-font-size-tablet;
+  }
+
+  .header__content {
+    padding: 3%;
+    max-width: 60%;
+  }
+
+  .projects {
+    @include adjust-padding(1.5rem, 3rem);
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .education, .work-experience {
+    @include adjust-padding(3rem, 3rem);
+
+    &__item {
+      padding: 1.2rem;
+      width: 100%;
+    }
+  }
+}
+
+
+/* ----------------------------------------------------------------------------2.Desktop view ----------------------------------------------------------------------*/
+
+@media screen and (min-width: $desktop-breakpoint) {
+  p {
+    font-size: $base-font-size-desktop;
+  }
+
+  /*-------2.1Desktop Navbar-------*/
+  .navbar {
+    justify-content: space-between;
+
+    &__list {
+      display: flex;
+      position: static;
+      width: auto;
+      height: auto;
+      padding-top: 0;
+      background-color: transparent;
+      transition: none;
+
+      a {
+        display: inline;
+        font-size: initial;
+        margin-top: 0;
+        text-align: left;
+        color: #FAFAFA;
+
+        &:hover {
+          background-color: $hover-bg-color;
+          color: $hover-text-color;
+        }
+      }
+    }
+
+    &__button--bars {
+      display: none;
+    }
+  }
+
+  .projects {
+    @include adjust-padding(3.125rem, 10rem);
+
+    &__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .education {
+    @include adjust-padding(0, 10rem);
+
+    &__item {
+      @include adjust-padding(3rem, 8rem);
+    }
+  }
+
+  .work-experience {
+    @include adjust-padding(0, 12.5rem);
+
+    &__item {
+      width: 70%;
+    }
+  }
+}

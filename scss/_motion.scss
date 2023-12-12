@@ -1,0 +1,138 @@
+/*------------------------------------------------Motion---------------------------------------------------------*/
+
+/*Contents
+
+1.Motions
+2.Keyframes
+
+*/
+
+.motion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  @include adjust-padding(3.125rem, 10rem); // Using mixin for padding
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+  &__cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background-color: $base-background-color; // Using variable for background color
+    border-radius: 10px;
+    perspective: 1000px; // For 3D transforms
+  }
+
+  &__hover-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #2e4053;
+    color: $base-background-color; // Using variable for text color
+    cursor: pointer;
+    transition:
+      background-color 0.5s,
+      transform 1s,
+      box-shadow 2s;
+
+    &:hover {
+      background-color: $hover-bg-color; // Using variable for hover background color
+      transform: scale(1.5);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  /*--------1.Motions------------*/
+
+  &__scale-text {
+    font-size: 2rem;
+    animation: scaleIn 2s infinite alternate;
+  }
+
+  &__svg-move {
+    max-width: 100px;
+    transition: transform 0.3s;
+
+    &:hover {
+      animation: move 2s infinite alternate;
+    }
+  }
+
+  &__typing-effect p {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #333;
+    animation:
+      typing 4s steps(14) infinite,
+      blink 1s infinite;
+  }
+
+  &__flip-text {
+    animation: flip 2s infinite alternate;
+  }
+
+  &__cubic-text {
+    animation: cubicMove 2s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite alternate;
+  }
+}
+
+// 2.Keyframes
+
+@keyframes scaleIn {
+  from {
+    transform: scale(1.5);
+  }
+
+  to {
+    transform: scale(0.5);
+  }
+}
+
+@keyframes move {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(50px);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes flip {
+  from {
+    transform: rotateX(0deg);
+  }
+
+  to {
+    transform: rotateX(180deg);
+  }
+}
+
+@keyframes cubicMove {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(30px);
+  }
+}

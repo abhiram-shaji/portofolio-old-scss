@@ -1,0 +1,630 @@
+@charset "UTF-8";
+/*
+
+Contents
+
+1. Tablet view
+2. Desktop view
+  2.1 Desktop Navbar
+
+*/
+/*------------------------------------------------Main---------------------------------------------------------*/
+/*
+Contents
+
+1.Variables
+2.Resets & Basic Styles
+3.Mixins
+4.Extends
+5.Functions
+
+*/
+/*------------------------------------------------config---------------------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, footer h2, .education__item--highlighted {
+  text-align: center;
+}
+
+/*------------------------------------------------Menu---------------------------------------------------------*/
+.navbar {
+  height: 3.125rem;
+  background-color: #2E4053;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.navbar__logo img {
+  height: 3rem;
+  padding: 0.5rem;
+}
+.navbar__logo img:hover {
+  background-color: #131a22;
+  color: #333333;
+}
+.navbar__list {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100vh;
+  padding-top: 2.8rem;
+  background-color: #f5f5f5;
+  transition: all 0.3s ease;
+  list-style-type: none;
+}
+.navbar__list li {
+  margin: 0 0.438rem;
+}
+.navbar__list a {
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.5rem 1.25rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: block;
+  font-size: 1.5rem;
+  width: 100%;
+  margin-top: 1.9rem;
+  text-align: center;
+  color: #2E4053;
+}
+.navbar__button--cancel, .navbar__button--bars {
+  color: #666666;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: none;
+  margin-left: 10rem;
+}
+.navbar__button--bars {
+  display: block;
+}
+.navbar__button--cancel {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+}
+
+#navbar__check {
+  display: none;
+}
+#navbar__check:checked ~ .navbar__button--bars {
+  display: none;
+}
+#navbar__check:checked ~ .navbar__list {
+  left: 0;
+}
+#navbar__check:checked ~ .navbar__list .navbar__button--cancel {
+  display: block;
+}
+
+/*-------------------- Header -----------------*/
+.header {
+  background: url("../images/header-background.jpg") center no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__content {
+  padding: 10% 5%;
+  margin: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(245, 245, 245, 0.9);
+  border-radius: 1.25rem;
+  color: #333333;
+}
+
+/*------------------------------------------------Projects---------------------------------------------------------*/
+.projects {
+  background: rgba(46, 64, 83, 0.5);
+  padding: 1rem 2rem;
+  width: 100%;
+}
+.projects a {
+  text-decoration: none;
+}
+.projects h2 {
+  text-align: center;
+  color: #f5f5f5;
+}
+.projects__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 90%;
+  margin: 0 auto;
+}
+.projects__grid img {
+  width: 100%;
+  max-height: 12.5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+.projects__item {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+.projects__item:hover {
+  transform: translateY(-10px);
+}
+.projects__item h3 {
+  color: #333333;
+  margin-bottom: 1rem;
+}
+.projects__item p {
+  color: #555555;
+  margin-bottom: 1.5rem;
+}
+.projects__item a {
+  display: inline-block;
+  background: #7B8D8E;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  color: #f5f5f5;
+  margin-right: 1rem;
+  transition: background-color 0.3s;
+}
+.projects__item a:hover {
+  background: #DAA520;
+}
+
+/*------------------------------------------------Education---------------------------------------------------------*/
+.education {
+  padding: 2rem 2rem;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.education__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+}
+.education__item {
+  background: #f5f5f5;
+  padding: 1rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+.education__item:hover {
+  transform: translateY(-10px);
+  background: #DAA520;
+}
+.education__item--highlighted {
+  grid-column: span 2;
+}
+
+/*------------------------------------------------Work---------------------------------------------------------*/
+.work-experience {
+  padding: 2rem 2rem;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+}
+.work-experience__item {
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 1.5rem 2.5rem;
+  border-radius: 0.625rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+.work-experience__item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+  background: #DAA520;
+}
+
+/*------------------------------------------------Footer---------------------------------------------------------*/
+footer {
+  padding: 1.25rem 1.25rem;
+  background-color: #2E4053;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+footer h2 {
+  color: #f5f5f5;
+  font-family: "Euphoria Script", cursive;
+  font-weight: 200;
+  font-size: 3rem;
+}
+footer .footer__contact-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+}
+footer .footer__contact-list li {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+footer .footer__contact-list li:hover img {
+  transform: scale(1.5);
+  filter: grayscale(0%);
+}
+footer .footer__contact-item img {
+  max-width: 100%;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: grayscale(100%);
+}
+
+/*------------------------------------------------Motion---------------------------------------------------------*/
+/*Contents
+
+1.Motions
+2.Keyframes
+
+*/
+.motion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 3.125rem 10rem;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  /*--------1.Motions------------*/
+}
+.motion-grid__cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  perspective: 1000px;
+}
+.motion-grid__hover-btn {
+  padding: 10px 20px;
+  border: none;
+  background-color: #2e4053;
+  color: #f5f5f5;
+  cursor: pointer;
+  transition: background-color 0.5s, transform 1s, box-shadow 2s;
+}
+.motion-grid__hover-btn:hover {
+  background-color: #DAA520;
+  transform: scale(1.5);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+.motion-grid__scale-text {
+  font-size: 2rem;
+  animation: scaleIn 2s infinite alternate;
+}
+.motion-grid__svg-move {
+  max-width: 100px;
+  transition: transform 0.3s;
+}
+.motion-grid__svg-move:hover {
+  animation: move 2s infinite alternate;
+}
+.motion-grid__typing-effect p {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #333;
+  animation: typing 4s steps(14) infinite, blink 1s infinite;
+}
+.motion-grid__flip-text {
+  animation: flip 2s infinite alternate;
+}
+.motion-grid__cubic-text {
+  animation: cubicMove 2s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite alternate;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(1.5);
+  }
+  to {
+    transform: scale(0.5);
+  }
+}
+@keyframes move {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(50px);
+  }
+}
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+@keyframes flip {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(180deg);
+  }
+}
+@keyframes cubicMove {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(30px);
+  }
+}
+/*------------------------------------------------ANIMATION---------------------------------------------------------*/
+/*
+
+1.Defining animations for each shape
+2.Applying animations to shapes
+3.Animated text
+4.Dynamic CSS Animation with CSS Variables
+
+*/
+.animation {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 27%;
+}
+.animation__container-svg {
+  width: 100vw;
+  height: 100vh;
+}
+
+@keyframes circleMove {
+  0%, 100% {
+    transform: translate(336.8px, 414.23px) translateY(0);
+  }
+  50% {
+    transform: translate(336.8px, 414.23px) translateY(-10px);
+  }
+}
+@keyframes arrowMove {
+  0%, 100% {
+    transform: translate(725.75px, 658.62px) rotate(0);
+  }
+  50% {
+    transform: translate(725.75px, 658.62px) rotate(10deg);
+  }
+}
+@keyframes crossMove {
+  0%, 100% {
+    transform: translate(330.61px, 680.61px) scale(1);
+  }
+  50% {
+    transform: translate(330.61px, 680.61px) scale(1.1);
+  }
+}
+@keyframes triangleMove {
+  0%, 100% {
+    transform: translate(540px, 416.2px) translateX(0);
+  }
+  50% {
+    transform: translate(540px, 416.2px) translateX(-10px);
+  }
+}
+@keyframes squareMove {
+  0%, 100% {
+    transform: translate(723.93px, 415.74px) rotate(0);
+  }
+  50% {
+    transform: translate(723.93px, 415.74px) rotate(-10deg);
+  }
+}
+@keyframes frameMove {
+  0%, 100% {
+    transform: translate(555.89px, 657.61px) scale(1);
+  }
+  50% {
+    transform: translate(555.89px, 657.61px) scale(0.9);
+  }
+}
+@keyframes spinCross {
+  0% {
+    transform: translate(330.61px, 680.61px) rotate(0deg);
+  }
+  100% {
+    transform: translate(330.61px, 680.61px) rotate(360deg);
+  }
+}
+@keyframes splitFrame {
+  0%, 100% {
+    transform: translate(555.89px, 657.61px) scaleY(1);
+  }
+  50% {
+    transform: translate(555.89px, 657.61px) scaleY(2);
+  }
+}
+#circle {
+  animation: circleMove 3s infinite alternate;
+}
+
+#arrow {
+  animation: arrowMove 4s infinite alternate;
+}
+
+#cross {
+  animation: crossMove 5s infinite alternate;
+  animation: spinCross 2s infinite linear;
+}
+
+#triangle {
+  animation: triangleMove 3s infinite alternate;
+}
+
+#square {
+  animation: squareMove 4s infinite alternate;
+}
+
+#frame {
+  animation: frameMove 5s infinite alternate;
+  animation: splitFrame 3s infinite alternate;
+}
+
+/* Animated text */
+/* Creating a Motion Path */
+@keyframes moveAlongPath {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+#animation__kace {
+  font-size: 5rem;
+  offset-path: path("M10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80");
+  animation: moveAlongPath 5s infinite alternate;
+  margin-left: 25%;
+  padding: 0;
+}
+
+/* Dynamic CSS Animation with CSS Variables */
+:root {
+  --animation-duration: 5s;
+}
+
+#kace {
+  animation-duration: var(--animation-duration);
+}
+
+/* References
+   CSS-Tricks: offset-path | CSS-Tricks​1​.
+   MDN Web Docs: CSS motion path - CSS: Cascading Style Sheets​2​.
+   W3Schools: CSS offset-path property​3​.
+   DEV Community: Dynamic animations with CSS variables​4​.
+   Envato Tuts+: How to Use CSS Variables for Animation​5​.
+   Val Head: Animating with CSS Variables​6​.
+   CSS-Tricks: Making Custom Properties (CSS Variables) More Dynamic​7​.
+*/
+body {
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f5f5;
+  font-size: 14px;
+}
+
+h1, h2, h3, p {
+  margin-bottom: 1rem;
+}
+h1.h1, h2.h1, h3.h1, p.h1 {
+  font-size: 4rem;
+  color: #333333;
+  font-family: "Euphoria Script", cursive;
+}
+h1.h2, h2.h2, h3.h2, p.h2 {
+  font-size: 2.5rem;
+  font-weight: bolder;
+}
+h1.h3, h2.h3, h3.h3, p.h3 {
+  font-size: 1.5rem;
+}
+
+/* ----------------------------------------------------------------------------1.Tablet view ------------------------------------------------------------------------*/
+@media screen and (min-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+  .header__content {
+    padding: 3%;
+    max-width: 60%;
+  }
+  .projects {
+    padding: 1.5rem 3rem;
+  }
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
+  .education, .work-experience {
+    padding: 3rem 3rem;
+  }
+  .education__item, .work-experience__item {
+    padding: 1.2rem;
+    width: 100%;
+  }
+}
+/* ----------------------------------------------------------------------------2.Desktop view ----------------------------------------------------------------------*/
+@media screen and (min-width: 1025px) {
+  p {
+    font-size: 1.125rem;
+  }
+  /*-------2.1Desktop Navbar-------*/
+  .navbar {
+    justify-content: space-between;
+  }
+  .navbar__list {
+    display: flex;
+    position: static;
+    width: auto;
+    height: auto;
+    padding-top: 0;
+    background-color: transparent;
+    transition: none;
+  }
+  .navbar__list a {
+    display: inline;
+    font-size: initial;
+    margin-top: 0;
+    text-align: left;
+    color: #FAFAFA;
+  }
+  .navbar__list a:hover {
+    background-color: #DAA520;
+    color: #2E4053;
+  }
+  .navbar__button--bars {
+    display: none;
+  }
+  .projects {
+    padding: 3.125rem 10rem;
+  }
+  .projects__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .education {
+    padding: 0 10rem;
+  }
+  .education__item {
+    padding: 3rem 8rem;
+  }
+  .work-experience {
+    padding: 0 12.5rem;
+  }
+  .work-experience__item {
+    width: 70%;
+  }
+}/*# sourceMappingURL=main.css.map */

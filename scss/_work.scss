@@ -1,0 +1,28 @@
+/*------------------------------------------------Work---------------------------------------------------------*/
+
+
+.work-experience {
+  @include adjust-padding(2rem, 2rem); // Using mixin for padding
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: $base-font-family; // Using variable for font family
+
+  &__item {
+    width: 100%;
+    background-color: $base-background-color; // Using variable for background color
+    @include adjust-padding(1.5rem, 2.5rem); // Using mixin for padding
+    border-radius: 0.625rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+      background: $hover-bg-color; // using variable for hover background color
+    }
+  }
+}
